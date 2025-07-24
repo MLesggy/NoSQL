@@ -16,6 +16,7 @@ class ProduitController
 
   // CRUD
 
+    
  public function create()
 {
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {

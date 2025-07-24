@@ -32,9 +32,9 @@ $listeProduits = $produitRequest->getProduits();
         <th>Nom Produit</th>
         <th>Quantité</th>
         <th>Prix</th>
-        <th> Voir produit</th>
-        <th> Modifier produit</th>
-        <th> Supprimer produit</th>
+        <th> </th>
+        <th> </th>
+        <th> </th>
       </tr>
     </thead>
     <tbody>
@@ -44,13 +44,17 @@ $listeProduits = $produitRequest->getProduits();
             <td><?= htmlspecialchars($produit['nom'] ?? '') ?></td>
             <td><?= htmlspecialchars($produit['quantité'] ?? '') ?></td>
             <td><?= htmlspecialchars($produit['prix'] ?? '') ?></td>
-            <td> <a href="index.php?action=edit&id=<?= $produit['_id'] ?>">👀 </a> </td>
-            <td> <a href="index.php?action=edit&id=<?= $produit['_id'] ?>" >
-              
-              🖋️
-              </a> 
+            <td> <a href="#" class="btn-view" data-nom="<?= htmlspecialchars($produit['nom']) ?>"
+                data-quantite="<?= htmlspecialchars($produit['quantité']) ?>"
+                data-prix="<?= htmlspecialchars($produit['prix']) ?>">
+                Voir Détail produit
+        </a></td>
+            <td> <a class="btn-view" href="index.php?action=edit&id=<?= $produit['_id'] ?>">
+
+              Modifier produit
+              </a>
             </td>
-            <td> <a href="index.php?action=delete&id=<?= $produit['_id'] ?>"> ❌ </a> </td>
+            <td> <a class="btn-view" href="index.php?action=delete&id=<?= $produit['_id'] ?>"> Supprimer produit </a> </td>
           </tr>
         <?php endforeach; ?>
       <?php else: ?>
@@ -88,6 +92,16 @@ $listeProduits = $produitRequest->getProduits();
 
 </div>
 
-
+<!-- Modal de vue produit -->
+<div id="viewModal" class="modal">
+  <div class="modal-content">
+    <span class="close-view">&times;</span>
+    <h2>Détails du produit</h2>
+    <p><strong>Nom :</strong> <span id="viewNom"></span></p>
+    <p><strong>Quantité :</strong> <span id="viewQuantite"></span></p>
+    <p><strong>Prix :</strong> <span id="viewPrix"></span> €</p>
+  </div>
+</div>
 
 <script src="/ECFnoSQL/JS/ajouterProduitModal.js"></script>
+<script src="/ECFnoSQL/JS/voirProduit.js"></script>

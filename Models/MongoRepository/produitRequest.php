@@ -37,6 +37,22 @@ class ProduitRequest
     }
     // CRUD 
 
+
+    // Voir un produit 
+    public function view(Produit $produit)
+{
+     try {
+        $result = $this->collection->findOne([
+            '_id' => new ObjectId($produit->getID_produit())
+        ]);
+        return $result;
+    } catch (Exception $e) {
+        echo "Erreur lors de la récupération du produit : " . $e->getMessage();
+        return null;
+    }
+}
+
+
     // Ajouter un produit 
     public function createProduit(Produit $produit)
     {
