@@ -1,0 +1,17 @@
+[
+    {
+        "nom": "un ordi très joli",
+        "quantité": 32,
+        "prix": 789
+    },
+    {
+        "nom": "un pc vraiment laid",
+        "quantité": 23,
+        "prix": 568
+    },
+    {
+        "nom": "une tablette trop chouette",
+        "quantité": 3,
+        "prix": 123
+    }
+]
